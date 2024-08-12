@@ -1,18 +1,15 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setName, setEmail } from './actions';
+import React, { useState } from 'react';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const name = useSelector((state) => state.name);
-  const email = useSelector((state) => state.email);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleNameChange = (e) => {
-    dispatch(setName(e.target.value));
+    setName(e.target.value);
   };
 
   const handleEmailChange = (e) => {
-    dispatch(setEmail(e.target.value));
+    setEmail(e.target.value);
   };
 
   return (
