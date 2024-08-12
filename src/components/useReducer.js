@@ -5,7 +5,7 @@ const initialState = {
   email: '',
 };
 
-const useReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_NAME:
       return { ...state, name: action.payload };
@@ -16,4 +16,4 @@ const useReducer = (state = initialState, action) => {
   }
 };
 
-export default useReducer;
+export default userReducer;
