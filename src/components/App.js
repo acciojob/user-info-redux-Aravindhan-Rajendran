@@ -1,12 +1,11 @@
-// App.js
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setName, setEmail } from './userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setName, setEmail } from './actions';
 
 const App = () => {
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.user.name);
-  const email = useSelector((state) => state.user.email);
+  const name = useSelector((state) => state.name);
+  const email = useSelector((state) => state.email);
 
   const handleNameChange = (e) => {
     dispatch(setName(e.target.value));
@@ -17,24 +16,23 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <div>
       <h1>User Info</h1>
       <div>
         <label>
           Name:
-          <input type="text" value={name} onChange={handleNameChange} placeholder="Enter name" />
+          <input type="text" value={name} onChange={handleNameChange} />
         </label>
       </div>
       <div>
         <label>
           Email:
-          <input type="email" value={email} onChange={handleEmailChange} placeholder="Enter email" />
+          <input type="email" value={email} onChange={handleEmailChange} />
         </label>
       </div>
       <div>
-        <h2>Current values in store:</h2>
-        <p>Name - {name}</p>
-        <p>Email - {email}</p>
+        <p>Name: {name}</p>
+        <p>Email: {email}</p>
       </div>
     </div>
   );
