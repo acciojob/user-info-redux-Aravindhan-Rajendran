@@ -1,13 +1,14 @@
-export const SET_NAME = 'SET_NAME';
-export const SET_EMAIL = 'SET_EMAIL';
+// Action Types
+export const UPDATE_NAME = 'UPDATE_NAME';
+export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 
 // Action Creators
-export const setName = (name) => ({
-  type: SET_NAME,
+export const updateName = (name) => ({
+  type: UPDATE_NAME,
   payload: name,
 });
 
-export const setEmail = (email) => ({
-  type: SET_EMAIL,
+export const updateEmail = (email) => ({
+  type: UPDATE_EMAIL,
   payload: email,
 });
