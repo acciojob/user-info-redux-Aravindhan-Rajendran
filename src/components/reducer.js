@@ -1,4 +1,4 @@
-import { UPDATE_NAME, UPDATE_EMAIL } from './actions';
+import { UPDATE_NAME, UPDATE_EMAIL } from './action';
 
 // Initial State
 const initialState = {
