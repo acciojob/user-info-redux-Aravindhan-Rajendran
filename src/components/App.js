@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
-import { updateName, updateEmail } from './actions';
+import { updateName, updateEmail } from './action';
 
 const App = () => {
   const dispatch = useDispatch();
