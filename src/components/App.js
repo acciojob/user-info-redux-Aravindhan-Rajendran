@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import store from './store';
+import { updateName, updateEmail } from './actions';
 
 const App = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
+  const { name, email } = useSelector((state) => state);
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    dispatch(updateName(e.target.value));
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    dispatch(updateEmail(e.target.value));
   };
 
   return (
@@ -18,21 +21,28 @@ const App = () => {
       <div>
         <label>
           Name:
-          <input type="text" value={name} onChange={handleNameChange} />
+          <input type="text" value={name} onChange={handleNameChange} placeholder="Enter name" />
         </label>
       </div>
       <div>
         <label>
           Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input type="email" value={email} onChange={handleEmailChange} placeholder="Enter email" />
         </label>
       </div>
       <div>
-        <p>Name: {name}</p>
-        <p>Email: {email}</p>
+        <h2>Current values in store:</h2>
+        <p>Name - {name}</p>
+        <p>Email - {email}</p>
       </div>
     </div>
   );
 };
 
-export default App;
+const AppWithProvider = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default AppWithProvider;
