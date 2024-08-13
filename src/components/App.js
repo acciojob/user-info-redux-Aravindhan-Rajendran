@@ -32,8 +32,8 @@ const App = () => {
       </div>
       <div>
         <h2>Current values in store:</h2>
-        <p>Name - {name}</p>
-        <p>Email - {email}</p>
+        <p className="output">Name - {name}</p>
+        <p className="output">Email - {email}</p>
       </div>
     </div>
   );
